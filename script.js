@@ -17,7 +17,6 @@ c.fillText("GoatMan",50,75);*/
 
 
 class Ball {
-    r = 60;
     constructor(x, y, vx, vy, colorR = 0, colorG = 0, colorB = 0) {
         this.rt = ["GoatMan","GOATMAN","goatman","Goat-Man","Goat_Man","GoAtMaN","gOaTmAn","goatMAN","GOATman"]
         this.rtt = this.rt[random(0,8)]
@@ -25,6 +24,7 @@ class Ball {
         this.rttf = this.tf[random(0,8)];
         this.st = random(10,90);
         //dayere e farzi
+        this.r = this.st+10;
         this.x = x || random(0 + this.r, innerWidth - (this.r * 3));
         this.y = y || random(0 + this.r, innerHeight - (this.r * 3));
 
