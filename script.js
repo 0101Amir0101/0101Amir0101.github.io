@@ -15,9 +15,11 @@ c.fillStyle = "red";
 c.font = "25px verdana";
 c.fillText("GoatMan",50,75);*/
 
+let text = prompt("بربر")
 
 class Ball {
     constructor(x, y, vx, vy, colorR = 0, colorG = 0, colorB = 0) {
+        this.start = false;
         this.rt = ["GoatMan","GOATMAN","goatman","Goat-Man","Goat_Man","GoAtMaN","gOaTmAn","goatMAN","GOATman"]
         this.rtt = this.rt[random(0,8)]
         this.tf = ["Times New Roman","Arial","Trebuchet MS","Monospaced font","Georgia","Garamond","Verdana","Helvetica","Tahoma"]
@@ -57,10 +59,26 @@ class Ball {
         c.fill()*/
         c.fillStyle = `rgb(${this.colorR},${this.colorG},${this.colorB})`
         c.font = `${this.st}px ${this.rttf}`;
-        c.fillText(`${this.rtt}`, this.x, this.y);
+        /*c.fillText(`${this.rtt}`, this.x, this.y);*/
+        c.fillText(text, this.x, this.y);
 
     }
     update() {
+        document.querySelector("#cro").addEventListener("click",e=>{
+            this.start = false;
+        })
+        document.querySelector("#cr2").addEventListener("click",e=>{
+            this.start = true;
+        })
+        if(this.start== true){
+            this.rttf = this.tf[random(0,8)];
+            this.st = random(10,90);
+            this.vx *= 1.002;
+            this.vy *= 1.002;
+            this.colorR = random(1, 400);
+            this.colorG = random(1, 400);
+            this.colorB = random(1, 400);
+        }
         if ((this.x + (this.r * 3) > innerWidth && this.vx > 0) || (this.x < 0 && this.vx < 0)) {
             this.vx *= -1;
             this.colorR = random(1, 400);
